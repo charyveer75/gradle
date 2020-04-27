@@ -37,8 +37,8 @@ dependencies {
 
 tasks.integTest {
     options {
-        require(this is JUnitOptions)
-        excludeCategories("org.gradle.soak.categories.SoakTest")
+        require(this is JUnitPlatformOptions)
+        excludeTags("org.gradle.soak.categories.SoakTest")
     }
 }
 
@@ -48,8 +48,8 @@ tasks.register("soakIntegTest", org.gradle.gradlebuild.test.integrationtests.Soa
     classpath = integTestSourceSet.runtimeClasspath
     systemProperty("org.gradle.soaktest", "true")
     options {
-        require(this is JUnitOptions)
-        includeCategories("org.gradle.soak.categories.SoakTest")
+        require(this is JUnitPlatformOptions)
+        includeTags("org.gradle.soak.categories.SoakTest")
     }
 }
 
